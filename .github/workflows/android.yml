@@ -2,9 +2,6 @@ name: Build Komikku APK
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main  # or 'master', whichever is your default branch
 
 jobs:
   build:
