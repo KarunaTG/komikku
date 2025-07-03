@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - main  # Or replace with 'master' if that's your default branch
+      - main  # or master
 
 jobs:
   build:
@@ -20,6 +20,13 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: 17
+
+      - name: Create local.properties
+        uses: DamianReeves/write-file-action@v1.2
+        with:
+          path: local.properties
+          contents: |
+            sdk.dir=/usr/local/lib/android/sdk
 
       - name: Grant execute permission for gradlew
         run: chmod +x ./gradlew
